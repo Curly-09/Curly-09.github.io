@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sairaj Ambekar — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+--cream:#f3ecdd;
+--cream-soft:#f8f3e7;
+--ink:#191714;
+--ink-soft:#4a463f;
+--rose:#b3455c;
+--line:#c9c0aa;
+--xmark:#a39c88;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#d9d2c1;font-family:'DM Sans',sans-serif;color:var(--ink);}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}*{animation:none !important; transition:none !important;}}
+
+.sheet{max-width:1000px;margin:0 auto;background:var(--cream);position:relative;overflow:hidden;}
+.section{position:relative;padding:88px 72px;border-bottom:1px solid var(--line);}
+.section:last-child{border-bottom:none;}
+
+.xgrid{display:grid;grid-template-columns:repeat(5,16px);gap:12px 14px;width:max-content;}
+.xgrid span{font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:var(--xmark);line-height:1;}
+
+.scribble{position:absolute; opacity:0.92; pointer-events:none;}
+.scribble path{fill:var(--ink);}
+
+/* ===== HERO ===== */
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;padding:72px;}
+.hero .xgrid{margin-bottom:34px;}
+.hero h1{font-family:'Anton',sans-serif;font-size:clamp(56px,10vw,110px);letter-spacing:1px;line-height:0.9;text-transform:uppercase;}
+.hero .role{font-family:'Caveat',cursive;font-size:30px;color:var(--rose);margin-top:18px;}
+.hero .years{margin-top:30px;display:flex;align-items:center;gap:20px;font-size:14px;letter-spacing:2px;color:var(--ink-soft);}
+.hero .years .rule{height:1px;width:180px;background:var(--ink);}
+.scribble.tr{top:-30px; right:-30px; width:150px; transform:rotate(8deg);}
+.scribble.bl{bottom:-30px; left:-30px; width:150px; transform:rotate(-172deg);}
+
+/* ===== ABOUT ===== */
+.about{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start;}
+.mock{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 18px 40px -20px rgba(25,23,20,0.35);}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid #eee;}
+.mock-bar .dot{width:9px;height:9px;border-radius:50%;}
+.dot.r{background:#e5544e;}
+.dot.y{background:#e8b83e;}
+.dot.g{background:#4cae5a;}
+.mock-bar span{margin-left:auto;font-size:11px;color:#999;letter-spacing:0.5px;}
+.avatar-ph{width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,#3a352e,#161412);display:flex;align-items:center;justify-content:center;color:#f3ecdd;font-family:'Anton',sans-serif;font-size:96px;letter-spacing:2px;}
+
+.about-copy .xgrid{margin-bottom:18px;}
+.about-copy h2{font-family:'Anton',sans-serif;font-size:38px;text-transform:uppercase;line-height:1;}
+.about-copy h2 .name{display:block; margin-top:4px;}
+.about-copy p{margin-top:24px;max-width:52ch;line-height:1.7;color:var(--ink-soft);font-size:16px;}
+.contact{margin-top:32px;padding-top:22px;border-top:1px solid var(--ink);}
+.contact h3{font-size:14px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;}
+.contact ul{list-style:none; display:flex; flex-direction:column; gap:8px;}
+.contact li{display:flex; align-items:center; gap:10px; font-size:15px; color:var(--ink-soft);}
+.contact a{color:var(--ink-soft);text-decoration:none;}
+.contact a:hover{color:var(--rose);text-decoration:underline;}
+.contact svg{flex-shrink:0;}
+
+/* ===== CARDS ===== */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.card{background:var(--cream-soft);border:1px solid var(--line);border-radius:6px;padding:30px;min-height:220px;display:flex;flex-direction:column;position:relative;}
+.card.dark{background:linear-gradient(135deg,#3a352e,#161412);color:#f3ecdd;border:none;}
+.card .eyebrow{font-family:'Caveat',cursive;font-size:24px;color:var(--rose);line-height:1;}
+.card.dark .eyebrow{color:#e8a3ad;}
+.card h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:26px;margin-top:2px;letter-spacing:0.5px;}
+.card .by{font-size:12px;color:var(--ink-soft);margin-top:4px;letter-spacing:0.5px;}
+.card.dark .by{color:#cfc7ba;}
+.skills-list{margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px;color:var(--ink-soft);}
+.card.dark .skills-list{color:#e6e0d3;}
+.skills-list li::before{content:"\2014 "; color:var(--rose); font-weight:700;}
+.card.dark .skills-list li::before{color:#e8a3ad;}
+.proj-desc{margin-top:14px;font-size:14.5px;line-height:1.65;color:var(--ink-soft);}
+.card.dark .proj-desc{color:#d9d2c4;}
+.card .tag{margin-top:auto;padding-top:16px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;}
+.card.dark .tag{border-top:1px solid rgba(255,255,255,0.15); color:#cfc7ba;}
+.card .tag a{color:inherit;text-decoration:none;}
+.card .tag a:hover{color:var(--rose);}
+.grid2.stack{margin-top:24px;}
+
+.section-label{font-family:'Caveat',cursive;font-size:26px;color:var(--rose);margin-bottom:6px;}
+.section-title{font-family:'Anton',sans-serif;font-size:32px;text-transform:uppercase;margin-bottom:30px;}
+
+/* ===== FOOTER ===== */
+.footer{display:flex;justify-content:space-between;align-items:flex-end;padding:88px 72px 64px;}
+.footer .eyebrow{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+.footer .xgrid{margin-bottom:24px;}
+.footer h2{font-family:'Anton',sans-serif;font-size:56px;text-transform:uppercase;}
+.footer .meta{text-align:right;font-size:14px;color:var(--ink-soft);line-height:1.8;}
+.footer .meta a{color:var(--ink-soft);text-decoration:none;}
+.footer .meta a:hover{color:var(--rose);}
+
+@media (max-width:760px){
+.section{padding:56px 28px;}
+.hero{padding:56px 28px;}
+.about{grid-template-columns:1fr;}
+.grid2{grid-template-columns:1fr;}
+.footer{flex-direction:column; align-items:flex-start; gap:24px;}
+.footer .meta{text-align:left;}
+}
+a:focus-visible, button:focus-visible{outline:2px solid var(--rose);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+<!-- HERO -->
+<section class="section hero">
+<svg class="scribble tr" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M40 10 C60 30 20 40 50 55 C80 70 30 80 60 95 C90 110 40 120 70 140 L80 130 C55 118 100 108 65 90 C35 74 85 62 55 48 C30 36 65 28 45 15 Z"/></svg>
+<svg class="scribble bl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M40 10 C60 30 20 40 50 55 C80 70 30 80 60 95 C90 110 40 120 70 140 L80 130 C55 118 100 108 65 90 C35 74 85 62 55 48 C30 36 65 28 45 15 Z"/></svg>
+
+<div class="xgrid" aria-hidden="true">
+<span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+<span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+</div>
+<h1>Sairaj<br>Ambekar</h1>
+<div class="role">founder &amp; engineer, building Sylix</div>
+<div class="years">
+<span>2025</span>
+<div class="rule"></div>
+<span>2026</span>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+<div class="mock">
+<div class="mock-bar">
+<span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+<span>about me</span>
+</div>
+<img src="photo.jpg" alt="Sairaj Ambekar" style="width:100%; aspect-ratio:4/5; object-fit:cover; display:block;">
+</div>
+
+<div class="about-copy">
+<div class="xgrid" aria-hidden="true">
+<span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+</div>
+<h2>About me<span class="name">Sairaj</span></h2>
+<p>
+Hi, I'm Sairaj Ambekar, a 16-year-old developer from Mumbai, India. For the past year I've been building Sylix, a free-to-run native AI code editor written from scratch in Rust.
+</p>
+<p>
+I built the whole thing solo: the native editor, the backend, the API layer, the model routing, and the verify loop. Most AI coding tools just write code. Sylix is built to understand the project, remember your rules, test what it writes, and actually finish the task. I cold-DMed 100+ developers to figure out what a real AI editor should do, then built it.
+</p>
+
+<div class="contact">
+<h3>Contact me</h3>
+<ul>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
++91 75066 79407
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+<a href="mailto:ambekarsairaj16@gmail.com">ambekarsairaj16@gmail.com</a>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+<a href="https://github.com/Curly-09">github.com/Curly-09</a>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.5 11.5M20 20L8.5 8.5M4 20L20 4"/></svg>
+<a href="https://x.com/Saaiii09">x.com/Saaiii09</a>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg>
+<a href="https://sylixide.com">sylixide.com</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- RIGHT NOW -->
+<section class="section" id="now">
+<div class="section-label">right now</div>
+<div class="section-title">What I'm up to</div>
+<div class="grid2">
+<div class="card dark">
+<span class="eyebrow">currently</span>
+<h3>Building</h3>
+<ul class="skills-list">
+<li>Working on Sylix, a free-to-run native AI code editor in Rust</li>
+<li>Learning Rust internals, systems performance, and how to build an editor that finishes the job</li>
+<li>Collaborating on open-source dev tools and AI coding tooling</li>
+<li>Looking for help scaling Sylix's inference gateway and testing across machines</li>
+</ul>
+</div>
+<div class="card">
+<span class="eyebrow">say hi</span>
+<h3>Ask me about</h3>
+<ul class="skills-list">
+<li>Rust and building a native editor from scratch</li>
+<li>AI coding agents and the verify loop</li>
+<li>Talking to real users and cold outreach</li>
+</ul>
+<div class="tag"><span>fun fact</span><span>built Sylix solo</span></div>
+</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+<div class="section-label">selected work</div>
+<div class="section-title">Projects</div>
+<div class="grid2">
+<div class="card dark">
+<span class="eyebrow">flagship</span>
+<h3>Sylix</h3>
+<span class="by">native AI code editor · Rust</span>
+<p class="proj-desc">A free-to-run, native AI coding editor built from scratch in Rust, about 35MB. Runs local, on your own key, or on a free hosted tier. Its verify loop runs its own output, reads the real error, and fixes it before claiming done.</p>
+<div class="tag"><a href="https://sylixide.com">sylixide.com</a><span>2025 — now</span></div>
+</div>
+<div class="card">
+<span class="eyebrow">web</span>
+<h3>SkillBridge</h3>
+<span class="by">MERN · student network</span>
+<p class="proj-desc">A LinkedIn-style networking platform for students, built on React, Node, and MongoDB, with profiles, skills, search, connections, and endorsements.</p>
+<div class="tag"><a href="https://skill-bridge-black.vercel.app">skill-bridge-black.vercel.app</a></div>
+</div>
+</div>
+
+<div class="grid2 stack">
+<div class="card">
+<span class="eyebrow">mobile</span>
+<h3>Charles</h3>
+<span class="by">Flutter · AI router</span>
+<p class="proj-desc">An AI app built in Flutter with a model routing engine that picks and switches between models on the fly.</p>
+<div class="tag"><span>Flutter</span><span>AI</span></div>
+</div>
+<div class="card">
+<span class="eyebrow">tooling</span>
+<h3>AuthFlow-AI</h3>
+<span class="by">one-line AI auth</span>
+<p class="proj-desc">A one-line, AI-handled authentication drop-in for websites, so you can add auth without wiring it all up yourself.</p>
+<div class="tag"><a href="https://authflow-ai.com">authflow-ai.com</a></div>
+</div>
+</div>
+
+<div class="grid2 stack">
+<div class="card">
+<span class="eyebrow">infra</span>
+<h3>Seek Engine</h3>
+<span class="by">Firecrawl alternative</span>
+<p class="proj-desc">A lightweight web-search and crawling engine I built as a free alternative to Firecrawl, now built into Sylix so it has web search without paying for external APIs.</p>
+<div class="tag"><span>web search</span><span>built into Sylix</span></div>
+</div>
+<div class="card" style="justify-content:center;">
+<div class="xgrid" aria-hidden="true" style="margin-bottom:20px;">
+<span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+</div>
+<span class="eyebrow" style="font-family:'DM Sans'; font-style:italic; font-weight:500; color:var(--ink-soft);">independent developer · 2025 — 2026</span>
+<h3 style="margin-top:10px;">Let's build together</h3>
+<a href="mailto:ambekarsairaj16@gmail.com" style="margin-top:16px; font-size:14px; color:var(--rose); text-decoration:underline;">ambekarsairaj16@gmail.com</a>
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+<div class="section-label">toolbox</div>
+<div class="section-title">Skills</div>
+<div class="grid2">
+<div class="card">
+<span class="eyebrow">languages</span>
+<h3>Code</h3>
+<ul class="skills-list">
+<li>Rust</li>
+<li>TypeScript &amp; JavaScript</li>
+<li>Python</li>
+<li>Dart</li>
+</ul>
+</div>
+<div class="card">
+<span class="eyebrow">frameworks &amp; tools</span>
+<h3>Stack</h3>
+<ul class="skills-list">
+<li>React, Node, MongoDB (MERN)</li>
+<li>Tauri &amp; native desktop</li>
+<li>Flutter</li>
+<li>Git, GitHub, Linux</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<section class="section footer">
+<div>
+<div class="eyebrow">Independent developer · 2025 — 2026</div>
+<div class="xgrid" aria-hidden="true">
+<span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+<span>×</span><span>×</span><span>×</span><span>×</span><span>×</span>
+</div>
+<h2>Thank you</h2>
+</div>
+<div class="meta">
+<a href="mailto:ambekarsairaj16@gmail.com">ambekarsairaj16@gmail.com</a><br>
+<a href="https://github.com/Curly-09">github.com/Curly-09</a><br>
+<a href="https://sylixide.com">sylixide.com</a>
+</div>
+</section>
+
+</div>
+
+</body>
+</html>
